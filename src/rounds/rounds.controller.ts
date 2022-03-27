@@ -1,12 +1,16 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from '../app.service';
+import { ConfigService } from '@nestjs/config';
+import { RoundsService } from './rounds.service';
 
 @Controller('rounds')
 export class RoundsController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly configService: ConfigService, private readonly roundsService: RoundsService) {}
 
   @Get('/start')
   start(): string {
-    return 'Round started.';
+    if (!this.configService.get('ABLY_API_KEY')) {
+      throw 'ABLY_API_KEY is not set.';
+    }
+    return this.roundsService.start();
   }
 }
