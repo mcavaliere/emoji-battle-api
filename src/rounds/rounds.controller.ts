@@ -8,9 +8,8 @@ export class RoundsController {
 
   @Get('/start')
   start(): string {
-    if (!this.configService.get('ABLY_API_KEY')) {
-      throw 'ABLY_API_KEY is not set.';
-    }
+    this.roundsService.initWebsocket();
+
     return this.roundsService.start();
   }
 }
