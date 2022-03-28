@@ -4,7 +4,7 @@ import { CronExpression, SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import * as Ably from 'ably';
 
-export const NUM_TICKS_IN_ROUND = 60;
+export const NUM_TICKS_IN_ROUND = 15;
 export const TICK_DURATION = 1000;
 export const CRON_JOB_NAME = 'TIMER';
 
@@ -18,7 +18,10 @@ export class RoundsService {
   private cronjob: CronJob;
   private currentTick = 0;
 
-  constructor(private configService: ConfigService, private schedulerRegistry: SchedulerRegistry) {}
+  constructor(
+    private configService: ConfigService,
+    private schedulerRegistry: SchedulerRegistry,
+  ) {}
 
   public initWebsocket(): Ably.Realtime {
     if (!this.configService.get('ABLY_API_KEY')) {
@@ -26,7 +29,9 @@ export class RoundsService {
     }
 
     if (!this.websocket) {
-      this.websocket = new Ably.Realtime(this.configService.get('ABLY_API_KEY'));
+      this.websocket = new Ably.Realtime(
+        this.configService.get('ABLY_API_KEY'),
+      );
     }
 
     return this.websocket;
@@ -58,6 +63,7 @@ export class RoundsService {
   }
 
   stop(): string {
+    console.log(`Stopping cronjob....`);
     if (this.cronjob) {
       this.cronjob.stop();
       this.schedulerRegistry.deleteCronJob(CRON_JOB_NAME);
