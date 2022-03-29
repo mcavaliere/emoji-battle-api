@@ -69,6 +69,7 @@ export class RoundsService {
       this.cronjob.stop();
       this.schedulerRegistry.deleteCronJob(CRON_JOB_NAME);
       delete this.cronjob;
+      this.currentTick = 0;
       return 'Stopped.';
     }
 
