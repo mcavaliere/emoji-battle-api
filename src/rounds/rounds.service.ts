@@ -45,6 +45,7 @@ export class RoundsService {
       this.logger.log(`Publishing tick:  `, this.currentTick);
       channel.publish('TICK', { number: this.currentTick });
     } else {
+      channel.publish('ROUND_ENDED', {});
       this.stop();
     }
   };

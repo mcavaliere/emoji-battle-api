@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  let app = await NestFactory.create(AppModule);
 
   // ConfigService isn't available until app.listen() is called; we start a temporary server
   //  to get the CLIENT_HOST from the environment, then close it.
@@ -15,8 +15,9 @@ async function bootstrap() {
     throw new Error('CLIENT_HOST is not set.');
   }
 
-  // Whitelist the client host and start the real server.
-  app.enableCors({ origin: [CLIENT_HOST] });
+  app = await NestFactory.create(AppModule, {
+    cors: { origin: CLIENT_HOST, methods: ['GET', 'POST'] },
+  });
   await app.listen(3001);
 }
 bootstrap();
