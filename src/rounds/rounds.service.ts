@@ -60,11 +60,13 @@ export class RoundsService {
     this.schedulerRegistry.addCronJob(CRON_JOB_NAME, this.cronjob);
     this.cronjob.start();
 
+    const channel = this.websocket.channels.get('TIMER');
+    channel.publish('ROUND_STARTED', {});
+
     return 'Started.';
   }
 
   stop(): string {
-    console.log(`Stopping cronjob....`);
     if (this.cronjob) {
       this.cronjob.stop();
       this.schedulerRegistry.deleteCronJob(CRON_JOB_NAME);
