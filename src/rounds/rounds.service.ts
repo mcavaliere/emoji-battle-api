@@ -14,7 +14,7 @@ export const CRON_JOB_NAME = 'TIMER';
 @Injectable()
 export class RoundsService {
   private websocket: Ably.Realtime;
-  private readonly logger = new Logger(RoundsService.name);
+  public readonly logger = new Logger(RoundsService.name);
   private cronjob: CronJob;
   private currentTick = 0;
 

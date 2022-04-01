@@ -9,5 +9,8 @@ import { RoundsService } from './rounds.service';
   providers: [RoundsService],
 })
 export class RoundsModule {
-  constructor(private configService: ConfigService, private roundsService: RoundsService) {}
+  constructor(
+    private configService: ConfigService,
+    private roundsService: RoundsService,
+  ) {}
 }
