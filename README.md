@@ -37,7 +37,7 @@ $ npm run test:cov
 ## Stay in touch
 
 - Author - [Mike Cavaliere](https://mikecavaliere.com)
-- Twitter - [@nestframework](https://twitter.com/mcavaliere)
+- Twitter - [@mcavaliere](https://twitter.com/mcavaliere)
 - Supported by my company - [Echobind](https://echobind.com/)
 
 ## License
