@@ -602,6 +602,13 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@nestjs/axios@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/axios/-/axios-0.1.0.tgz#6cf93df11ef93b598b3c7411adb980eedd13b3e3"
+  integrity sha512-b2TT2X6BFbnNoeteiaxCIiHaFcSbVW+S5yygYqiIq5i6H77yIU3IVuLdpQkHq8/EqOWFwMopLN8jdkUT71Am9w==
+  dependencies:
+    axios "0.27.2"
+
 "@nestjs/cli@^8.0.0":
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-8.2.4.tgz#3d27cc8c98d0c87a0bf2f19d90fcefde54103b7a"
@@ -1455,6 +1462,14 @@ axios@0.26.1:
   integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
   dependencies:
     follow-redirects "^1.14.8"
+
+axios@0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
+  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
+  dependencies:
+    follow-redirects "^1.14.9"
+    form-data "^4.0.0"
 
 babel-jest@^27.5.1:
   version "27.5.1"
@@ -2555,6 +2570,11 @@ follow-redirects@^1.14.8:
   version "1.14.9"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.9.tgz#dd4ea157de7bfaf9ea9b3fbd85aa16951f78d8d7"
   integrity sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w==
+
+follow-redirects@^1.14.9:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
+  integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
 
 fork-ts-checker-webpack-plugin@7.2.1:
   version "7.2.1"

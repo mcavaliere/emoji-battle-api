@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { RoundsService } from './rounds.service';
 
@@ -10,11 +10,11 @@ export class RoundsController {
   ) {}
 
   @Post('/start')
-  start(): string {
+  start(@Body('roundId') roundId: number): string {
     this.roundsService.logger.log(`POST /rounds/start`);
     this.roundsService.initWebsocket();
 
-    return this.roundsService.start();
+    return this.roundsService.start(roundId);
   }
 
   @Post('/stop')
